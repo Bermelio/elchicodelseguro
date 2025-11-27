@@ -4,9 +4,17 @@
     font-family: poppins, sans-serif;
 }
 
+/* :root{
+  background-color: #213a8a;
+} */
+
 @theme {
   --color-azul-oscuro-custom: #213a8a; 
   --color-azul-custom: #020315;
   --color-gris-custom: #c8c6c7;
   --color-blanco-custom: #f0eff5;
 }
+
+/* html {
+  scroll-behavior: smooth;
+} */
