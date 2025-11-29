@@ -1,3 +1,7 @@
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 function MainLayout() {
 
   const handleClick = () => {
@@ -10,7 +14,7 @@ function MainLayout() {
         <img 
           src="/assests/images/main.webp" 
           alt="main page home"
-          className="w-full h-full object-cover object-[10%_70%]"
+          className="box w-full h-full object-cover object-[10%_70%]"
           id="home"
         />
         <div className="absolute inset-0 bg-black/30" />

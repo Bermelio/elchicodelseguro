@@ -18,3 +18,26 @@
 /* html {
   scroll-behavior: smooth;
 } */
+
+::-webkit-scrollbar {
+  width: 8px;          
+  height: 8px;        
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-blanco-custom);  
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-azul-oscuro-custom);  
+  border-radius: 9999px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gris-custom); 
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-azul-oscuro-custom) var(--color-blanco-custom);
+}

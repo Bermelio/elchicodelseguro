@@ -1,4 +1,8 @@
 function About() {
+  const handleEmpresa = () => {
+    window.location.href = ("https://www.fedpat.com.ar/")
+  }
+
   return (
     <>
       <section className="flex flex-col md:flex-row justify-center items-center min-h-screen bg-blanco-custom px-4 py-16 md:px-12">
@@ -10,13 +14,12 @@ function About() {
                 src={"/assests/images/about.webp"}
                 alt="Equipo de trabajo de la empresa"
                 className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                id="about-us"
               />
             </div>
           </div>
 
           <div className="w-full md:w-1/2 text-center md:text-left space-y-5">
-            <p className="text-sm tracking-[0.25em] uppercase text-gris-medio-custom">
+            <p className="text-sm tracking-[0.25em] uppercase text-gris-medio-custom" id="about-us">
               Sobre nosotros
             </p>
 
@@ -38,14 +41,15 @@ function About() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-center md:justify-start">
-              <button className="px-6 py-3 rounded-full border border-primario-custom text-primario-custom font-semibold hover:bg-primario-custom/5 transition-all">
-                Conocer más sobre la empresa
+              <button onClick={handleEmpresa}
+              className="px-6 py-3 rounded-full border border-primario-custom text-primario-custom font-semibold hover:bg-primario-custom/5 hover:scale-105 transition-transform duration-300">
+                Conocé más sobre la empresa
               </button>
             </div>
 
             <div className="pt-4 flex flex-wrap gap-4 text-xs md:text-sm text-gris-medio-custom/90">
               <span className="inline-flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-primario-custom" />+10 años de experiencia
+                <span className="w-2 h-2 rounded-full bg-primario-custom" />años de experiencia
               </span>
               <span className="inline-flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-primario-custom" />Atención personalizada

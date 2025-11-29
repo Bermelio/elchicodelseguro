@@ -1,6 +1,7 @@
 import Header from "./components/layout/Header"
 import MainLayout from "./components/layout/MainLayout"
 import About from "./components/layout/About.tsx"
+import Contact  from "./components/layout/Contanct.tsx"
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <Header />
       <MainLayout />
       <About />
-      
+      <Contact />
     </>
 
   )

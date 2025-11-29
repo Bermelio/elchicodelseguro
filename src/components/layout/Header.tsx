@@ -12,7 +12,10 @@ function Header() {
 
     gsap.to(window, {
       duration: 1.5,
-      scrollTo: "#about-us",
+      scrollTo: {
+        y:"#about-us",
+        offsetY: 200
+      },
       ease: "power1.inOut"
     });
   };
@@ -26,6 +29,16 @@ function Header() {
       ease: "power2.inOut"
     });
   };
+
+  const handleContact = (e:any) => {
+    e.preventDefault();
+
+    gsap.to(window, {
+      duration: 1.5,
+      scrollTo: "#contact",
+      ease: "power3.inOut"
+    });
+  }
 
   return (
     <header className="pl-17 fixed top-0 left-0 w-full bg-blanco-custom flex items-center justify-between px-4 py-2 shadow-md z-50 rounded-b-lg">
@@ -42,7 +55,7 @@ function Header() {
           <a href="#home" onClick={handleHome}>Home</a>
         </li>
         <li className="hover:text-blue-500">
-          <a href="">Contacto</a>
+          <a href="#contact" onClick={handleContact}>Contacto</a>
         </li>
         <li className="hover:text-blue-500">
           <a href="#about-us" onClick={handleAboutUs}>Sobre nosotros</a>
