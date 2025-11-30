@@ -40,4 +40,5 @@
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--color-azul-oscuro-custom) var(--color-blanco-custom);
+  /* outline: 1px solid red; */
 }

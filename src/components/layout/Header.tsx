@@ -14,7 +14,7 @@ function Header() {
       duration: 1.5,
       scrollTo: {
         y:"#about-us",
-        offsetY: 200
+        offsetY: 150
       },
       ease: "power1.inOut"
     });
