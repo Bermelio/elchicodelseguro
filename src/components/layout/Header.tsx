@@ -52,17 +52,17 @@ function Header() {
         />
       </div>
 
-      <ul className="flex p-4 m-4 list-none gap-12 text-lg font-medium text-gris-oscuro-custom">
-        <li className="hover:text-blue-500">
+      <ul className="flex list-none gap-12 text-lg font-medium text-gris-oscuro-custom">
+        <li className="hover:text-blue-500 px-3 py-2 inline-flex items-center">
           <a href="#home" onClick={handleHome}>Home</a>
         </li>
-        <li className="hover:text-blue-500">
-          <a href="#contact" onClick={handleContact}>Contacto</a>
-        </li>
-        <li className="hover:text-blue-500">
+        <li className="hover:text-blue-500 px-3 py-2 inline-flex items-center">
           <a href="#about-us" onClick={handleAboutUs}>Sobre nosotros</a>
         </li>
-        <li className="hover:text-blue-500">
+        <li className="hover:text-blue-500 px-3 py-2 inline-flex items-center">
+          <a href="#contact" onClick={handleContact}>Contacto</a>
+        </li>
+        <li className="hover:text-blue-500 px-3 py-2 inline-flex items-center">
           <a href="#testimonials" onClick={handleTestimonials}>Testimonios</a>
         </li>
       </ul>

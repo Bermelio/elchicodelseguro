@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import Whatsapp from '../common/whatsapp';
 
 function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -60,6 +61,8 @@ function Contact() {
           </p>
         </div>
 
+        <Whatsapp />
+
         <div
           className="w-full lg:w-7/12 bg-white/90 rounded-3xl shadow-xl p-6 md:p-8">
           <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
@@ -86,7 +89,7 @@ function Contact() {
               <input
                 type="email"
                 name="user_email"
-                placeholder="juanperez@tumail.com"
+                placeholder="juanperez@gmail.com"
                 required
                 className="w-full px-5 py-3 rounded-full border border-gray-200  text-gray-800  placeholder:text-gray-400focus:outline-none focus:outline-none focus:ring-2 focus:ring-azul-oscuro-custom/70 focus:border-transparent"
               />
