@@ -5,7 +5,7 @@ function About() {
 
   return (
     <>
-      <section className="flex flex-col md:flex-row justify-center items-center min-h-screen bg-blanco-custom px-4 py-16 md:px-12">
+      <section className="flex flex-col md:flex-row justify-center items-center min-h-screen bg-blanco-custom px-4 py-16 md:px-12" id="about-us">
         <div className="max-w-5xl w-full flex flex-col md:flex-row items-center gap-10">
           
           <div className="w-full md:w-2/3 flex justify-center">
@@ -19,7 +19,7 @@ function About() {
           </div>
 
           <div className="w-full md:w-1/2 text-center md:text-left space-y-5">
-            <p className="text-sm tracking-[0.25em] uppercase text-gris-medio-custom" id="about-us">
+            <p className="text-sm tracking-[0.25em] uppercase text-gris-medio-custom">
               Sobre nosotros
             </p>
 
