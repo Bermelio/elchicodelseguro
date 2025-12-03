@@ -1,6 +1,29 @@
+import { useState, useEffect } from "react";
+  
 function About() {
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    "/assests/images/slide1.webp",
+    "/assests/images/slide2.webp",
+    "/assests/images/slide3.webp",
+    "/assests/images/slide4.webp",
+    "/assests/images/slide5.webp",
+  ];
+
+  const totalSlides = slides.length;
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % totalSlides);
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [totalSlides]);
+
   const handleEmpresa = () => {
-    window.location.href = ("https://www.fedpat.com.ar/")
+    window.location.href = ("https://online.fedpat.com.ar/cotizar_seguro_online/")
   }
 
   return (
@@ -8,13 +31,27 @@ function About() {
       <section className="flex flex-col md:flex-row justify-center items-center min-h-screen bg-blanco-custom px-4 py-16 md:px-12" id="about-us">
         <div className="max-w-5xl w-full flex flex-col md:flex-row items-center gap-10">
           
-          <div className="w-full md:w-2/3 flex justify-center">
-            <div className="rounded-3xl overflow-hidden shadow-xl shadow-black/10 border border-gray-100">
-              <img
-                src={"/assests/images/about.webp"}
-                alt="Equipo de trabajo de la empresa"
-                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-              />
+          <div className="w-full md:w-2/3 h-[400px] md:h-[500px] overflow-hidden rounded-lg shadow-lg">
+            
+            <div 
+              className="flex h-full transition-transform duration-1000"
+              style={{ 
+              transform: `translateX(-${currentSlide * 100}%)`,
+              transitionTimingFunction: 'cubic-bezier(0.25, 0.1, 0.25, 1)'
+              }}
+              >
+              {slides.map((slide, index) => (
+                <div
+                  key={index}
+                  className="w-full h-full shrink-0"
+                >
+                  <img
+                    src={slide}
+                    alt={`Slide ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
             </div>
           </div>
 

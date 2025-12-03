@@ -46,7 +46,7 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="w-full bg-linear-to-b from-blanco-custom to-gris-custom py-16 px-4">
+    <section id="contact" className="contact w-full bg-linear-to-b from-blanco-custom to-gris-custom py-16 px-4">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
         <div className="w-full lg:w-5/12 flex flex-col gap-4">
           <h3 className="text-4xl md:text-5xl font-bold text-azul-oscuro-custom leading-tight">
@@ -106,11 +106,11 @@ function Contact() {
               className="w-full px-5 py-3 rounded-3xl border border-gray-200 text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-azul-oscuro-custom/70 focus:border-transparent resize-none h-32"/>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-start justify-end sm:items-end gap-3">
               <button
                 type="submit"
                 disabled={loading}
-                className="px-10 py-3 bg-azul-oscuro-custom text-white text-lg font-semiboldrounded-full hover:bg-azul-custom transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                className="self-end sm:self-auto px-10 py-3 bg-azul-oscuro-custom text-white text-lg font-semibold rounded-full hover:bg-azul-custom transition-all disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {loading ? 'Enviando...' : 'Enviar'}
               </button>

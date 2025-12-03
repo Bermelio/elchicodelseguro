@@ -1,4 +1,4 @@
-function MainLayout() {
+function Main() {
 
   const handleClick = () => {
     window.location.href = ("https://online.fedpat.com.ar/cotizar_seguro_online/");
@@ -34,4 +34,4 @@ function MainLayout() {
   );
 }
 
-export default MainLayout;
+export default Main;

@@ -16,6 +16,7 @@ function Whatsapp() {
         start: 'top center',
         end: 'bottom center',
         scrub: 1,
+        // markers: true,
         onEnter: () => {
           gsap.to('#warap', {
             x: 0,
