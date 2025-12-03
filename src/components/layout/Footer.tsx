@@ -1,7 +1,7 @@
 
 function Footer() {
   return (
-    <footer className="w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white border-t border-gray-700 py-6 flex flex-col md:flex-row items-center justify-between px-8">
+    <footer className="w-full bg-linear-to-r from-gray-900 via-gray-800 to-gray-900 text-white border-t border-gray-700 py-6 flex flex-col md:flex-row items-center justify-between px-8">
 
       <div className="text-xs text-gray-300">
         &copy; {new Date().getFullYear()} El Chico del Seguro. Todos los derechos reservados.

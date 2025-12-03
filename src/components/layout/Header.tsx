@@ -1,13 +1,18 @@
 import LogoSeguro from '/assests/images/logo-seguro.svg';
-import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { useState } from 'react';
+import { gsap } from 'gsap';
 
 gsap.registerPlugin(ScrollToPlugin);
 
-
 function Header() {
+  const [open, setOpen] = useState(false);
 
-  const scrollToCenter = (selector: string, duration: number = 1.5, ease: string = "power1.inOut") => {
+  const scrollToCenter = (
+    selector: string,
+    duration: number = 1.5,
+    ease: string = "power1.inOut"
+  ) => {
     const element = document.querySelector(selector);
     if (!element) return;
 
@@ -37,35 +42,72 @@ function Header() {
     scrollToCenter("#about-us", 1.5, "power1.inOut");
   };
 
-  // const handleTestimonials = (e: any) => {
-  //   e.preventDefault();
-  //   scrollToCenter("#testimonials", 1.5, "power1.inOut");
-  // };
-
   return (
-    <header className="pl-17 fixed top-0 left-0 w-full bg-blanco-custom flex items-center justify-between px-4 py-2 shadow-md z-50 rounded-b-lg">
-      <div className="flex items-center gap-2">
+    <header className="fixed top-0 left-0 w-full bg-blanco-custom shadow-md z-50 rounded-b-lg">
+      {/* Wrapper */}
+      <div className="flex items-center justify-between px-4 py-3 md:px-8">
+        
+        {/* Logo */}
         <img
           src={LogoSeguro}
           alt="Logo seguro"
-          className="w-[150px] h-auto hover:scale-105 scale-150 transition-transform duration-300 mr-4"
+          className="w-[120px] sm:w-[150px] h-auto transition-transform duration-300 hover:scale-105"
         />
+
+        {/* Hamburger (mobile) */}
+        <button
+          className="md:hidden text-3xl text-gris-oscuro-custom"
+          onClick={() => setOpen(!open)}
+        >
+          ☰
+        </button>
+
+        {/* Menu (desktop) */}
+        <ul className="hidden md:flex list-none gap-10 text-lg font-medium text-gris-oscuro-custom">
+          <li className="hover:text-blue-500 px-2">
+            <a href="#home" onClick={handleHome}>Home</a>
+          </li>
+          <li className="hover:text-blue-500 px-2">
+            <a href="#about-us" onClick={handleAboutUs}>Sobre nosotros</a>
+          </li>
+          <li className="hover:text-blue-500 px-2">
+            <a href="#contact" onClick={handleContact}>Contacto</a>
+          </li>
+        </ul>
       </div>
 
-      <ul className="flex list-none gap-12 text-lg font-medium text-gris-oscuro-custom">
-        <li className="hover:text-blue-500 px-3 py-2 inline-flex items-center">
-          <a href="#home" onClick={handleHome}>Home</a>
-        </li>
-        <li className="hover:text-blue-500 px-3 py-2 inline-flex items-center">
-          <a href="#about-us" onClick={handleAboutUs}>Sobre nosotros</a>
-        </li>
-        <li className="hover:text-blue-500 px-3 py-2 inline-flex items-center">
-          <a href="#contact" onClick={handleContact}>Contacto</a>
-        </li>
-        {/* <li className="hover:text-blue-500 px-3 py-2 inline-flex items-center">
-          <a href="#testimonials" onClick={handleTestimonials}>Testimonios</a>
-        </li> */}
-      </ul>
+      {/* Mobile menu */}
+      {open && (
+        <ul className="md:hidden flex flex-col gap-4 px-6 py-4 bg-blanco-custom text-gris-oscuro-custom text-lg font-medium border-t border-gray-200">
+          <li>
+            <a
+              href="#home"
+              onClick={(e) => { handleHome(e); setOpen(false); }}
+              className="block py-2"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="#about-us"
+              onClick={(e) => { handleAboutUs(e); setOpen(false); }}
+              className="block py-2"
+            >
+              Sobre nosotros
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              onClick={(e) => { handleContact(e); setOpen(false); }}
+              className="block py-2"
+            >
+              Contacto
+            </a>
+          </li>
+        </ul>
+      )}
     </header>
   );
 }

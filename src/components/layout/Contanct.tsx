@@ -47,7 +47,7 @@ function Contact() {
 
   return (
     <section id="contact" className="contact w-full bg-linear-to-b from-blanco-custom to-gris-custom py-16 px-4">
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="max-w-6xl md:pb-0 pb-20 mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
         <div className="w-full lg:w-5/12 flex flex-col gap-4">
           <h3 className="text-4xl md:text-5xl font-bold text-azul-oscuro-custom leading-tight">
             Contactanos
