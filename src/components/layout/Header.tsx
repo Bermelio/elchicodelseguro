@@ -44,17 +44,14 @@ function Header() {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-blanco-custom shadow-md z-50 rounded-b-lg">
-      {/* Wrapper */}
       <div className="flex items-center justify-between px-4 py-3 md:px-8">
         
-        {/* Logo */}
         <img
           src={LogoSeguro}
           alt="Logo seguro"
           className="w-[120px] sm:w-[150px] h-auto transition-transform duration-300 hover:scale-105"
         />
 
-        {/* Hamburger (mobile) */}
         <button
           className="md:hidden text-3xl text-gris-oscuro-custom"
           onClick={() => setOpen(!open)}
@@ -62,7 +59,6 @@ function Header() {
           ☰
         </button>
 
-        {/* Menu (desktop) */}
         <ul className="hidden md:flex list-none gap-10 text-lg font-medium text-gris-oscuro-custom">
           <li className="hover:text-blue-500 px-2">
             <a href="#home" onClick={handleHome}>Home</a>
@@ -76,7 +72,6 @@ function Header() {
         </ul>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <ul className="md:hidden flex flex-col gap-4 px-6 py-4 bg-blanco-custom text-gris-oscuro-custom text-lg font-medium border-t border-gray-200">
           <li>

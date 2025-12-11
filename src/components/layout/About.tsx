@@ -78,7 +78,6 @@ function About() {
     <section className="flex flex-col md:flex-row justify-center items-center min-h-screen bg-blanco-custom px-4 py-16 md:px-12" id="about-us">
       <div className="max-w-5xl w-full flex flex-col md:flex-row items-center gap-10">
         
-        {/* CARRUSEL */}
         <div 
           ref={containerRef}
           className="w-full md:w-2/3 h-[400px] md:h-[500px] overflow-hidden rounded-lg shadow-lg bg-gray-200"
@@ -103,15 +102,14 @@ function About() {
           </div>
         </div>
 
-        {/* CONTENIDO */}
         <div className="w-full md:w-1/2 text-center md:text-left space-y-5">
           <p className="text-sm tracking-[0.25em] uppercase text-gray-500">
             Sobre nosotros
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight">
             Tu seguridad, <span className="text-blue-600">nuestra prioridad</span>.
-          </h2>
+          </h1>
 
           <p className="text-base md:text-lg text-gray-600 leading-relaxed">
             Somos un equipo especializado en seguros que te habla sin vueltas,
