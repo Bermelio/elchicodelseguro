@@ -1,11 +1,26 @@
 import LogoSeguro from '/assests/images/logo-seguro.svg';
+import Federacion from '/assests/images/federacion.svg'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { useGSAP } from '@gsap/react';
 import { useState } from 'react';
 import { gsap } from 'gsap';
 
 gsap.registerPlugin(ScrollToPlugin);
 
 function Header() {
+  useGSAP(() =>{
+    gsap.from('#federacion', {
+      scrollTrigger: {
+        trigger: '#home',
+        start: 'bottom center',
+        end: 'center center',
+        scrub: 1,
+        markers: true
+      },
+      y:-200
+    });
+  });
+
   const [open, setOpen] = useState(false);
 
   const scrollToCenter = (
@@ -50,14 +65,22 @@ function Header() {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-blanco-custom shadow-md z-50 rounded-b-lg">
-      <div className="flex items-center justify-between px-4 py-3 md:px-8">
+      <div className="flex flex-row items-center justify-between px-4 py-3 md:px-8">
         <a href="#home" onClick={handleHome}>
-        <img
-          src={LogoSeguro}
-          alt="Logo seguro"
-          className="w-[150px] md:scale-130 sm:scale-0 sm:w-[150px] h-auto transition-transform duration-300 hover:scale-155"
-          
-          />
+          <div className="flex items-center ms:gap-2 md:gap-20">
+          <img
+            src={LogoSeguro}
+            alt="Logo seguro"
+            className="w-[150px] md:scale-130 sm:scale-0 sm:w-[150px] h-auto transition-transform duration-300 md:hover:scale-155"
+            
+            />
+          <img 
+            src={Federacion} 
+            alt="Logo federacion patronal"
+            id='federacion'
+            className="w-[150px] md:scale-130 sm:scale-0 sm:w-[150px] h-auto transition-transform duration-300 md:hover:scale-155"
+            />
+          </div>
         </a>
 
         <button

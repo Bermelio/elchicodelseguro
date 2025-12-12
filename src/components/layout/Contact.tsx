@@ -60,7 +60,9 @@ function Contact() {
             ayudarte a encontrar la mejor cobertura para tu seguro.
           </p>
         </div>
+
         <Whatsapp />
+        
         <div
           className="w-full lg:w-7/12 bg-white/90 rounded-3xl shadow-xl p-6 md:p-8">
           <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">

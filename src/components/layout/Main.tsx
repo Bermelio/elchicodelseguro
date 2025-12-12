@@ -34,7 +34,7 @@ function Main() {
   };
 
   return (
-    <div id="home" className="relative w-full h-screen overflow-hidden">
+    <div id="home" className="home relative w-full h-screen overflow-hidden">
       <img 
         src="/assests/images/main.webp" 
         alt="main page home"
