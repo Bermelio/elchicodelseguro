@@ -89,6 +89,7 @@ function About() {
               >
                 <img
                   src={slide}
+                  loading="lazy"
                   alt={`Slide ${index + 1}`}
                   className="w-full h-full object-cover"
                 />
@@ -123,16 +124,8 @@ function About() {
             <strong>Automotores · Hogar · Accidentes Personales · Microseguros</strong>
           </p> */}
 
-          <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-center md:justify-start">
-            <button
-              onClick={handleEmpresa}
-              className="px-6 py-3 rounded-full border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 hover:scale-105 transition-all duration-300"
-            >
-              Cotizar ahora
-            </button>
-          </div>
 
-          <div className="pt-4 flex flex-wrap gap-4 text-xs md:text-sm text-gray-500">
+          <div className="flex flex-wrap gap-4 text-xs md:text-sm text-gray-500">
             <span className="inline-flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-blue-600" />
               Años de experiencia
@@ -145,6 +138,15 @@ function About() {
               <span className="w-2 h-2 rounded-full bg-blue-600" />
               Respuesta rápida y clara
             </span>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-center md:justify-start">
+            <button
+              onClick={handleEmpresa}
+              className="px-6 py-3 rounded-full border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 hover:scale-105 transition-all duration-300"
+            >
+              Cotizar ahora
+            </button>
           </div>
         </div>
       </div>
