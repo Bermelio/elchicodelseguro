@@ -12,7 +12,7 @@ function Main() {
     gsap.from(split.words, {
       y: '100%',
       opacity: 0,
-      duration: 1,
+      duration: 3,
       ease: 'power2.inOut',
       stagger: 0.1,
       scrollTrigger: {
@@ -42,7 +42,7 @@ function Main() {
       />
       <div className="absolute inset-0 bg-black/30" />
 
-      <div className="absolute inset-0 flex flex-col justify-start pt-50 items-start px-6 md:px-16">
+      <div className="absolute inset-0 flex flex-col justify-start pt-35 md:pt-50 items-start px-6 md:px-16">
         <div className="max-w-xl text-white">
           <div className="mainText">
             <h1 className="title text-4xl md:text-5xl font-bold leading-tight drop-shadow-lg">
