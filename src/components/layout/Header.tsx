@@ -26,12 +26,18 @@ function Header() {
       ease
     });
   };
-
-  const handleHome = (e: any) => {
-    e.preventDefault();
-    scrollToCenter("#home", 1.5, "power2.inOut");
-  };
-
+  
+    const handleHome = (e: any) => {
+      e.preventDefault();
+      scrollToCenter("#home", 1.5, "power2.inOut");
+      setOpen(false);
+    };
+  
+    const handleMoreInfo = (e: any) => {
+      e.preventDefault();
+      scrollToCenter("#MoreInfo", 1.5, "power1.Out");
+    };
+  
   const handleContact = (e: any) => {
     e.preventDefault();
     scrollToCenter("#contact", 1.5, "power3.inOut");
@@ -45,12 +51,14 @@ function Header() {
   return (
     <header className="fixed top-0 left-0 w-full bg-blanco-custom shadow-md z-50 rounded-b-lg">
       <div className="flex items-center justify-between px-4 py-3 md:px-8">
-        
+        <a href="#home" onClick={handleHome}>
         <img
           src={LogoSeguro}
           alt="Logo seguro"
-          className="w-[120px] sm:w-[150px] h-auto transition-transform duration-300 hover:scale-105"
-        />
+          className="w-[150px] md:scale-130 sm:scale-0 sm:w-[150px] h-auto transition-transform duration-300 hover:scale-155"
+          
+          />
+        </a>
 
         <button
           className="md:hidden text-3xl text-gris-oscuro-custom"
@@ -61,10 +69,10 @@ function Header() {
 
         <ul className="hidden md:flex list-none gap-10 text-lg font-medium text-gris-oscuro-custom">
           <li className="hover:text-blue-500 px-2">
-            <a href="#home" onClick={handleHome}>Home</a>
+            <a href="#home" onClick={handleMoreInfo}>Seguros</a>
           </li>
           <li className="hover:text-blue-500 px-2">
-            <a href="#about-us" onClick={handleAboutUs}>Sobre nosotros</a>
+            <a href="#about-us" onClick={handleAboutUs}>Sobre mí</a>
           </li>
           <li className="hover:text-blue-500 px-2">
             <a href="#contact" onClick={handleContact}>Contacto</a>
@@ -76,11 +84,11 @@ function Header() {
         <ul className="md:hidden flex flex-col gap-4 px-6 py-4 bg-blanco-custom text-gris-oscuro-custom text-lg font-medium border-t border-gray-200">
           <li>
             <a
-              href="#home"
-              onClick={(e) => { handleHome(e); setOpen(false); }}
+              href="#MoreInfo"
+              onClick={(e) => { handleMoreInfo(e); setOpen(false); }}
               className="block py-2"
             >
-              Home
+              Seguros
             </a>
           </li>
           <li>
@@ -89,7 +97,7 @@ function Header() {
               onClick={(e) => { handleAboutUs(e); setOpen(false); }}
               className="block py-2"
             >
-              Sobre nosotros
+              Sobre mí
             </a>
           </li>
           <li>
