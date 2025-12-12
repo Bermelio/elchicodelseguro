@@ -1,9 +1,9 @@
-import Header from "./components/layout/Header"
-import MainLayout from "./components/layout/Main"
-import About from "./components/layout/About"
-import Contact from "./components/layout/Contact";
-import Footer from "./components/layout/Footer"
-import MoreInfo from "./components/layout/MoreInfo"
+import Header from "./components/layout/Header.tsx"
+import MainLayout from "./components/layout/Main.tsx"
+import About from "./components/layout/About.tsx"
+import Contact  from "./components/layout/Contact.tsx"
+import Footer from "./components/layout/Footer.tsx"
+import MoreInfo from "./components/layout/MoreInfo.tsx"
 
 function App() {
   return (
