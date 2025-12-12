@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import Whatsapp from "@/components/common/Whatsapp";
+import Whatsapp from "../common/warap.tsx";
 
 function Contact() {
   const formRef = useRef<HTMLFormElement>(null);

@@ -4,7 +4,7 @@ import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-function Whatsapp() { 
+function warap() { 
   const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '';
   const message = import.meta.env.VITE_WHATSAPP_MESSAGE || 'Hola, me gustaría obtener más información';
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -59,4 +59,4 @@ function Whatsapp() {
   );
 }
 
-export default Whatsapp;
+export default warap;
