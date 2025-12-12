@@ -15,7 +15,7 @@ function Header() {
         start: 'bottom center',
         end: 'center center',
         scrub: 1,
-        markers: true
+        // markers: true
       },
       y:-200
     });
