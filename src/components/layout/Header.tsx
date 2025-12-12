@@ -78,7 +78,7 @@ function Header() {
             src={Federacion} 
             alt="Logo federacion patronal"
             id='federacion'
-            className="w-[150px] md:scale-130 sm:scale-0 sm:w-[150px] h-auto transition-transform duration-300 md:hover:scale-155"
+            className="w-[150px] lg:w-[250px] h-auto transition-transform duration-300 md:hover:scale-155"
             />
           </div>
         </a>
