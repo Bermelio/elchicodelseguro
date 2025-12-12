@@ -1,4 +1,4 @@
-import Legal from "../common/Legal.tsx"
+import Legal from "../common/Legal"
 
 function Footer() {
   return (
