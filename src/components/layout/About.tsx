@@ -18,7 +18,6 @@ function About() {
     "/assests/images/slide5.webp",
   ];
 
-  // SLIDER SAFE
   useEffect(() => {
     const slidesEl = slidesRef.current.filter(Boolean) as HTMLDivElement[];
     if (!slidesEl.length) return;
@@ -57,7 +56,6 @@ function About() {
     return () => clearInterval(interval);
   }, []);
 
-  // SPLITTEXT SAFE
   useGSAP(() => {
     const split = new SplitText(".about-text", { type: "words,chars" });
 
@@ -82,7 +80,6 @@ function About() {
       className="overflow-x-hidden bg-blanco-custom px-4 py-16 md:px-12"
     >
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
-        {/* SLIDER */}
         <div className="w-full md:w-2/3 h-[400px] md:h-[500px] overflow-hidden rounded-lg shadow-lg">
           <div className="relative w-full h-full">
             {slides.map((src, i) => (
@@ -103,7 +100,6 @@ function About() {
           </div>
         </div>
 
-        {/* TEXTO */}
         <div className="w-full md:w-1/2 space-y-5 text-center md:text-left">
           <p className="text-sm tracking-[0.25em] uppercase text-gray-500">
             Sobre nosotros
