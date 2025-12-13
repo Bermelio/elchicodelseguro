@@ -42,7 +42,7 @@ function warap() {
       href={whatsappUrl} 
       target="_blank" 
       rel="noopener noreferrer" 
-      className="fixed md:bottom-30 md:left-20 bottom-30 left-15 bg-green-500 hover:bg-green-600 text-white rounded-full p-3 sm:p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-50"
+      className="fixed md:bottom-30 md:left-20 bottom-20 left-10 bg-green-500 hover:bg-green-600 text-white rounded-full p-3 sm:p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-50"
       aria-label="Contactar por WhatsApp"
       id="warap"
       style={{ transform: 'translateX(-200px)', opacity: 0 }}

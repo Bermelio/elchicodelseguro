@@ -140,13 +140,13 @@ function Header() {
         </button>
 
         <ul className="hidden md:flex list-none gap-10 text-lg font-medium text-gris-oscuro-custom">
-          <li className="hover:text-blue-500 px-2 p-2 cursor-pointer border-transparent hover:border-blue-500 transition-colors duration-300">
+          <li className="inline-block px-2 py-2 border-b-2 border-transparent hover:border-blue-500 hover:text-blue-500 transition-all duration-300">
             <a href="#home" onClick={handleMoreInfo}>Seguros</a>
           </li>
-          <li className="hover:text-blue-500 px-2 p-2 cursor-pointer border-transparent hover:border-blue-500 transition-colors duration-300">
+          <li className="inline-block px-2 py-2 border-b-2 border-transparent hover:border-blue-500 hover:text-blue-500 transition-all duration-300">
             <a href="#about-us" onClick={handleAboutUs}>Sobre mí</a>
           </li>
-          <li className="hover:text-blue-500 px-2 p-2 cursor-pointer border-transparent hover:border-blue-500 transition-colors duration-300">
+          <li className="inline-block px-2 py-2 border-b-2 border-transparent hover:border-blue-500 hover:text-blue-500 transition-all duration-300">
             <a href="#contact" onClick={handleContact}>Contacto</a>
           </li>
         </ul>
