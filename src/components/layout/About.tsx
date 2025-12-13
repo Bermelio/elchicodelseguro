@@ -23,7 +23,6 @@
         "https://online.fedpat.com.ar/cotizar_seguro_online/";
     };
 
-    /* ================= SLIDER (MOBILE SAFE) ================= */
     useEffect(() => {
       const slidesEl = slidesRef.current.filter(Boolean) as HTMLDivElement[];
       if (!slidesEl.length) return;
@@ -62,7 +61,6 @@
       return () => clearInterval(interval);
     }, []);
 
-    /* ================= SPLIT TEXT ================= */
     useGSAP(() => {
       const split = new SplitText(".about-text", {
         type: "words,chars",

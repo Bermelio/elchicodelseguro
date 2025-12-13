@@ -4,10 +4,6 @@
     font-family: poppins, sans-serif;
 }
 
-/* :root{
-  background-color: #213a8a;
-} */
-
 @theme {
   --color-azul-oscuro-custom: #213a8a; 
   --color-azul-custom: #020315;
@@ -20,7 +16,6 @@
   scrollbar-width: none;
 }
 
-/* Chrome, Edge, Safari, Opera */
 .no-scrollbar::-webkit-scrollbar {
   width: 0;
   height: 0;
@@ -48,5 +43,4 @@
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--color-azul-oscuro-custom) var(--color-blanco-custom);
-  /* outline: 1px solid red; */
 }

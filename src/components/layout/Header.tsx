@@ -120,7 +120,7 @@ function Header() {
           <img
             src={LogoSeguro}
             alt="Logo seguro"
-            className="w-[150px] md:scale-130 sm:w-[150px] h-auto transition-transform duration-300 md:hover:scale-155"
+            className="w-[150px] md:scale-130 sm:w-[150px] h-auto transition-transform duration-300 md:hover:scale-140"
             
             />
           <img 
