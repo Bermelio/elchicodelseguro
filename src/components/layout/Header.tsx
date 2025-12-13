@@ -116,11 +116,11 @@ function Header() {
     <header className="fixed top-0 left-0 w-full bg-blanco-custom shadow-md z-50 rounded-b-lg">
       <div className="flex flex-row items-center justify-between px-4 md:px-8">
         <a href="#home" onClick={handleHome}>
-          <div className="flex items-center ms:gap-2 md:gap-20 cursor-default">
+          <div className="flex items-center sm:gap-2 md:gap-20 cursor-default overflow-hidden">
           <img
             src={LogoSeguro}
             alt="Logo seguro"
-            className="w-[150px] md:scale-130 sm:scale-0 sm:w-[150px] h-auto transition-transform duration-300 md:hover:scale-155"
+            className="w-[150px] md:scale-130 sm:w-[150px] h-auto transition-transform duration-300 md:hover:scale-155"
             
             />
           <img 
@@ -140,13 +140,13 @@ function Header() {
         </button>
 
         <ul className="hidden md:flex list-none gap-10 text-lg font-medium text-gris-oscuro-custom">
-          <li className="hover:text-blue-500 px-2 p-2 cursor-pointer border-b-2 border-transparent hover:border-blue-500 transition-colors duration-300">
+          <li className="hover:text-blue-500 px-2 p-2 cursor-pointer border-transparent hover:border-blue-500 transition-colors duration-300">
             <a href="#home" onClick={handleMoreInfo}>Seguros</a>
           </li>
-          <li className="hover:text-blue-500 px-2 p-2 cursor-pointer border-b-2 border-transparent hover:border-blue-500 transition-colors duration-300">
+          <li className="hover:text-blue-500 px-2 p-2 cursor-pointer border-transparent hover:border-blue-500 transition-colors duration-300">
             <a href="#about-us" onClick={handleAboutUs}>Sobre mí</a>
           </li>
-          <li className="hover:text-blue-500 px-2 p-2 cursor-pointer border-b-2 border-transparent hover:border-blue-500 transition-colors duration-300">
+          <li className="hover:text-blue-500 px-2 p-2 cursor-pointer border-transparent hover:border-blue-500 transition-colors duration-300">
             <a href="#contact" onClick={handleContact}>Contacto</a>
           </li>
         </ul>

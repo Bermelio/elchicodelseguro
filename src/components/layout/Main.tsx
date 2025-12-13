@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 function Main() {
+  
   useGSAP(() => {
     let split = SplitText.create(".title", { type: "words,chars" });
 
@@ -15,12 +16,12 @@ function Main() {
       duration: 3,
       ease: 'power2.inOut',
       stagger: 0.1,
+      // markers: false,
       scrollTrigger: {
         trigger: ".title",
-        start: "center center", 
-        end: "300% center",
+        start: "center center",
+        end: () => window.innerWidth < 768 ? "150% center" : "300% center",
         toggleActions: "restart none none play",
-        markers: false,
       }
     });
 

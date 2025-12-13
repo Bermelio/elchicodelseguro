@@ -1,128 +1,101 @@
 import { useEffect, useRef } from "react";
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 
-gsap.registerPlugin(SplitText, ScrollTrigger)
-
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 function About() {
-  const containerRef = useRef<HTMLDivElement>(null);
   const slidesRef = useRef<(HTMLDivElement | null)[]>([]);
   const currentSlide = useRef(0);
   const isAnimating = useRef(false);
 
-  const slides: string[] = [
+  const slides = [
     "/assests/images/slide2.webp",
     "/assests/images/slide3.webp",
     "/assests/images/slide4.webp",
     "/assests/images/slide5.webp",
   ];
 
-  const numSlides = slides.length;
-
+  // SLIDER SAFE
   useEffect(() => {
-    const slideElements = slidesRef.current.filter(
-      (slide): slide is HTMLDivElement => slide !== null
-    );
+    const slidesEl = slidesRef.current.filter(Boolean) as HTMLDivElement[];
+    if (!slidesEl.length) return;
 
-    if (slideElements.length === 0) return;
+    gsap.set(slidesEl, { xPercent: 100 });
+    gsap.set(slidesEl[0], { xPercent: 0 });
 
-    const goToSlide = (nextIndex: number) => {
+    const interval = setInterval(() => {
       if (isAnimating.current) return;
       isAnimating.current = true;
 
       const current = currentSlide.current;
+      const next = (current + 1) % slidesEl.length;
 
-      slideElements.forEach((slide, i) => {
-        if (i === current) {
-          slide.style.transition = "transform 0.8s ease-in-out";
-          slide.style.transform = "translateX(-100%)";
-        } else if (i === nextIndex) {
-          slide.style.transform = "translateX(100%)";
-          slide.style.transition = "none";
-          slide.offsetHeight;
-
-          slide.style.transition = "transform 0.8s ease-in-out";
-          slide.style.transform = "translateX(0)";
-        } else {
-          slide.style.transition = "none";
-          slide.style.transform = "translateX(100%)";
-        }
+      gsap.to(slidesEl[current], {
+        xPercent: -100,
+        duration: 0.8,
+        ease: "power2.inOut",
       });
 
-      setTimeout(() => {
-        currentSlide.current = nextIndex;
-        isAnimating.current = false;
-      }, 1500);
-    };
-
-    slideElements.forEach((slide, i) => {
-      slide.style.transform = i === 0 ? "translateX(0)" : "translateX(100%)";
-    });
-
-    const interval = setInterval(() => {
-      const nextSlide = (currentSlide.current + 1) % numSlides;
-      goToSlide(nextSlide);
+      gsap.fromTo(
+        slidesEl[next],
+        { xPercent: 100 },
+        {
+          xPercent: 0,
+          duration: 0.8,
+          ease: "power2.inOut",
+          onComplete: () => {
+            currentSlide.current = next;
+            isAnimating.current = false;
+          },
+        }
+      );
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [numSlides]);
+  }, []);
 
-  const handleEmpresa = () => {
-    window.location.href = "https://online.fedpat.com.ar/cotizar_seguro_online/";
-  };
+  // SPLITTEXT SAFE
+  useGSAP(() => {
+    const split = new SplitText(".about-text", { type: "words,chars" });
 
-  useGSAP(()=>{
-    SplitText.create(".text", {
-      type: "words, chars",
-      onSplit(self){
-        gsap.from(self.chars, {
-        duration:1,
-        x:150,
-        autoAlpha:0,
-        stagger:0.05,
-          scrollTrigger: {
-            trigger: '#content',
-            scrub: 1,
-            markers: false,
-            start: 'top center',
-            end: 'top center'
-          }
-        })
-      }
-    
-    })
+    gsap.from(split.chars, {
+      x: 60,
+      autoAlpha: 0,
+      stagger: 0.03,
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".about-text",
+        start: "top 80%",
+      },
+    });
 
+    return () => split.revert();
   });
-
 
   return (
     <section
-      className="flex flex-col md:flex-row justify-center items-center min-h-screen bg-blanco-custom px-4 py-16 md:px-12"
       id="about-us"
+      className="overflow-x-hidden bg-blanco-custom px-4 py-16 md:px-12"
     >
-      <div className="max-w-5xl w-full flex flex-col md:flex-row items-center gap-10">
-        <div
-        id="contenedor"
-          ref={containerRef}
-          className="w-full md:w-2/3 h-[400px] md:h-[500px] overflow-hidden rounded-lg shadow-lg bg-gray-200"
-        >
+      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
+        {/* SLIDER */}
+        <div className="w-full md:w-2/3 h-[400px] md:h-[500px] overflow-hidden rounded-lg shadow-lg">
           <div className="relative w-full h-full">
-            {slides.map((slide: string, index: number) => (
+            {slides.map((src, i) => (
               <div
-                key={index}
+                key={i}
                 ref={(el) => {
-                  slidesRef.current[index] = el;
+                  slidesRef.current[i] = el;
                 }}
-                className="absolute top-0 left-0 w-full h-full"
-                style={{ transform: "translateX(100%)" }}
+                className="absolute inset-0"
               >
                 <img
-                  id='content'
-                  src={slide}
-                  alt={`Slide ${index + 1}`}
+                  src={src}
+                  alt={`Slide ${i + 1}`}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -130,49 +103,25 @@ function About() {
           </div>
         </div>
 
-        <div className="w-full md:w-1/2 text-center md:text-left space-y-5">
+        {/* TEXTO */}
+        <div className="w-full md:w-1/2 space-y-5 text-center md:text-left">
           <p className="text-sm tracking-[0.25em] uppercase text-gray-500">
             Sobre nosotros
           </p>
 
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">
             Tu seguridad, <span className="text-blue-600">nuestra prioridad</span>.
-          </h1>
+          </h2>
 
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-            El chico del seguro es <strong className="text">agente oficial de la Federación Patronal Seguros</strong>, 
-            la compañía N°1 de Latinoamérica en solidez, respaldo y calidad de atención. 
-            Mi compromiso es brindarte asesoramiento claro, humano y sin letra chica.
+          <p className="about-text text-base md:text-lg text-gray-600 leading-relaxed">
+            El chico del seguro es <strong>agente oficial de la Federación Patronal Seguros</strong>,
+            la compañía N°1 de Latinoamérica en solidez, respaldo y calidad de atención.
           </p>
 
           <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-            Te acompañamos para que entiendas cada cobertura y elijas exactamente lo que necesitás —ni más, ni menos—,
-            con precios reales y soporte cuando de verdad importa.
+            Te acompañamos para que elijas exactamente lo que necesitás, con soporte humano
+            cuando realmente importa.
           </p>
-
-          <div className="flex flex-wrap gap-4 text-xs md:text-sm text-gray-500">
-            <span className="inline-flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-blue-600" />
-              Años de experiencia
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-blue-600" />
-              Atención personalizada
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-blue-600" />
-              Respuesta rápida y clara
-            </span>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-center md:justify-start">
-            <button
-              onClick={handleEmpresa}
-              className="px-6 py-3 rounded-full border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 hover:scale-105 transition-all duration-300"
-            >
-              Cotizar ahora
-            </button>
-          </div>
         </div>
       </div>
     </section>
