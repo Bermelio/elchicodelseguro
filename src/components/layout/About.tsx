@@ -1,4 +1,11 @@
 import { useEffect, useRef } from "react";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SplitText } from "gsap/SplitText";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
+gsap.registerPlugin(SplitText, ScrollTrigger)
+
 
 function About() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -39,11 +46,11 @@ function About() {
 
           slide.style.transition = "transform 0.8s ease-in-out";
           slide.style.transform = "translateX(0)";
-  } else {
-    slide.style.transition = "none";
-    slide.style.transform = "translateX(100%)";
-  }
-});
+        } else {
+          slide.style.transition = "none";
+          slide.style.transform = "translateX(100%)";
+        }
+      });
 
       setTimeout(() => {
         currentSlide.current = nextIndex;
@@ -67,6 +74,30 @@ function About() {
     window.location.href = "https://online.fedpat.com.ar/cotizar_seguro_online/";
   };
 
+  useGSAP(()=>{
+    SplitText.create(".text", {
+      type: "words, chars",
+      onSplit(self){
+        gsap.from(self.chars, {
+        duration:1,
+        x:150,
+        autoAlpha:0,
+        stagger:0.05,
+          scrollTrigger: {
+            trigger: '#content',
+            scrub: 1,
+            markers: false,
+            start: 'top center',
+            end: 'top center'
+          }
+        })
+      }
+    
+    })
+
+  });
+
+
   return (
     <section
       className="flex flex-col md:flex-row justify-center items-center min-h-screen bg-blanco-custom px-4 py-16 md:px-12"
@@ -74,6 +105,7 @@ function About() {
     >
       <div className="max-w-5xl w-full flex flex-col md:flex-row items-center gap-10">
         <div
+        id="contenedor"
           ref={containerRef}
           className="w-full md:w-2/3 h-[400px] md:h-[500px] overflow-hidden rounded-lg shadow-lg bg-gray-200"
         >
@@ -88,8 +120,8 @@ function About() {
                 style={{ transform: "translateX(100%)" }}
               >
                 <img
+                  id='content'
                   src={slide}
-                  loading="lazy"
                   alt={`Slide ${index + 1}`}
                   className="w-full h-full object-cover"
                 />
@@ -108,7 +140,7 @@ function About() {
           </h1>
 
           <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-            El chico del seguro es <strong>agente oficial de la Federación Patronal Seguros</strong>, 
+            El chico del seguro es <strong className="text">agente oficial de la Federación Patronal Seguros</strong>, 
             la compañía N°1 de Latinoamérica en solidez, respaldo y calidad de atención. 
             Mi compromiso es brindarte asesoramiento claro, humano y sin letra chica.
           </p>
@@ -117,13 +149,6 @@ function About() {
             Te acompañamos para que entiendas cada cobertura y elijas exactamente lo que necesitás —ni más, ni menos—,
             con precios reales y soporte cuando de verdad importa.
           </p>
-
-          {/* <p className="text-sm md:text-base text-gray-500">
-            Trabajamos con las principales líneas de seguros de Federación Patronal:
-            <br />
-            <strong>Automotores · Hogar · Accidentes Personales · Microseguros</strong>
-          </p> */}
-
 
           <div className="flex flex-wrap gap-4 text-xs md:text-sm text-gray-500">
             <span className="inline-flex items-center gap-2">

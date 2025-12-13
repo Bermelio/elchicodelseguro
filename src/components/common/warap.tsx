@@ -29,7 +29,7 @@ function warap() {
           gsap.to('#warap', {
             x: -200,
             opacity: 0,
-            duration: 0.8,
+            duration: 0.6,
             ease: 'power2.in'
           });
         }

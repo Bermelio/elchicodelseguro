@@ -63,10 +63,10 @@ function MoreInfo() {
       />
 
       <div className="relative z-10 text-center max-w-2xl p-6">
-        <h2 className="text-4xl font-bold text-white mb-4 mt-20 drop-shadow-xl">
+        <h2 className="text-5xl font-bold text-white mb-10 mt-10 drop-shadow-xl">
           Tu agente de confianza en Federación Patronal
         </h2>
-        <p className="text-white text-lg opacity-90">
+        <p className="text-white text-lg mt-10 mb-10 opacity-90">
           Trabajamos con la aseguradora número uno de LATAM, brindando la mejor
           cobertura para vos y tu familia.
         </p>
@@ -79,7 +79,7 @@ function MoreInfo() {
             <button
               key={key}
               onClick={() => setActiveTab(key as 'hogar' | 'auto' | 'accidentes' | 'micro')}
-              className={`px-4 py-2 rounded-full text-sm font-semibold border transition-all
+              className={`px-4 py-2 rounded-full text-sm font-semibold border transition-all mb-8
                 ${
                   activeTab === key
                     ? "bg-azul-oscuro-custom text-white border-blue-900 shadow-lg scale-105"
