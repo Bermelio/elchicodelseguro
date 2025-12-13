@@ -2,10 +2,10 @@ import ssnLogo from "/assests/images/ssn-logo.png";
 
 function Legal() {
   return (
-    <footer className="bg-blanco-custom border-[#CFCFCF] text-[#4A4A49] py-10 font-roboto">
+    <footer className="bg-blanco-custom border-[#CFCFCF] text-[#4A4A49] pb-10 font-roboto">
       <div className="max-w-[1200px] mx-auto">
 
-        <div className="w-full h-px bg-[#DCDCDC] my-6"></div>
+        <div className="w-full h-px bg-[#DCDCDC] mb-6"></div>
 
         <div
           className="
