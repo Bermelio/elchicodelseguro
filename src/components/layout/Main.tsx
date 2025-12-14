@@ -6,10 +6,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 function Main() {
+  
   useGSAP(() => {
-    if (window.innerWidth < 768) return;
-
-    const split = SplitText.create(".title", { type: "words,chars" });
+    let split = SplitText.create(".title", { type: "words,chars" });
 
     gsap.from(split.words, {
       y: '100%',
@@ -17,10 +16,11 @@ function Main() {
       duration: 3,
       ease: 'power2.inOut',
       stagger: 0.1,
+      // markers: false,
       scrollTrigger: {
         trigger: ".title",
         start: "center center",
-        end: "300% center",
+        end: () => window.innerWidth < 768 ? "150% center" : "300% center",
         toggleActions: "restart none none play",
       }
     });
@@ -39,10 +39,7 @@ function Main() {
       <img 
         src="/assests/images/main.webp" 
         alt="main page home"
-        className="w-full h-full object-cover object-[10%_70%]"
-        width={1920}
-        height={1080}
-        loading="eager"
+        className="w-full h-full object-cover md:object-[20%_70%]"
       />
       <div className="absolute inset-0 bg-black/30" />
 
