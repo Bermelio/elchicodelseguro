@@ -27,7 +27,7 @@ function Contact() {
           'gmail_service',
           'template_seguro',
           formRef.current,
-          'Dx2CVuzZ72E-vD1Du'
+          '-dx5fXTpJo_u4S5TO'
         )
         .then(
           (result) => {
