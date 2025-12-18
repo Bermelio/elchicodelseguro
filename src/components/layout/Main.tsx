@@ -46,7 +46,7 @@ function Main() {
       <div className="absolute inset-0 flex flex-col justify-start pt-35 md:pt-50 items-start px-6 md:px-16">
         <div className="max-w-xl text-white">
           <div className="mainText">
-            <h1 className="title text-4xl md:text-5xl font-bold leading-tight drop-shadow-lg">
+            <h1 className="title text-3xl md:text-5xl font-bold leading-tight drop-shadow-lg">
               Tu tranquilidad, nuestro compromiso.
             </h1>
             <p className="text-lg md:text-2xl mt-6 drop-shadow-md pb-8">
@@ -78,12 +78,22 @@ function Main() {
             Protegé tu casa, departamento y auto con la compañía más confiable. 
             <span className="font-semibold text-yellow-300"> +50.000 familias</span> ya confían en nosotros.
           </p>
-          <div className="mt-8">
-            <button onClick={handleClick} className="bg-azul-oscuro-custom hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition-transform duration-150 hover:scale-105">
-              Cotizar ahora
+          <div className="mt-10">
+            <button
+              onClick={handleClick}
+              className="
+                bg-gradient-to-r from-azul-oscuro-custom to-blue-600
+                text-white font-bold
+                py-4 px-8 md:px-10
+                rounded-full shadow-2xl
+                text-base md:text-lg
+                transition-all duration-200
+                hover:scale-105
+              "
+                >
+              Accedé acá a tu seguro 
             </button>
-          </div>
-          
+           </div>
         </div>
       </div>
     </div>

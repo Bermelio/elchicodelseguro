@@ -16,6 +16,7 @@
       "/assests/images/slide3.webp",
       "/assests/images/slide4.webp",
       "/assests/images/slide5.webp",
+      "/assests/images/slide6.webp",
     ];
 
     const handleEmpresa = () => {
@@ -87,7 +88,7 @@
         className="overflow-x-hidden bg-blanco-custom min-h-screen flex items-center p-10 md:px-12"
       >
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          <div className="w-full md:w-2/3 h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-xl">
+          <div className="w-full md:w-2/3 h-[500px] md:h-[600px] overflow-hidden rounded-xl shadow-xl">
             <div className="relative w-full h-full">
               {slides.map((src, i) => (
                 <div

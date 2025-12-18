@@ -1,13 +1,20 @@
 import { useState } from "react";
 
+type PlanKey =
+  | "hogar"
+  | "auto"
+  | "accidentes"
+  | "incendios"
+  | "consorcio"
+  | "comercio";
 
 function MoreInfo() {
-  const [activeTab, setActiveTab] = useState<'hogar' | 'auto' | 'accidentes' | 'micro'>('hogar');
+  const [activeTab, setActiveTab] = useState<PlanKey>("hogar");
 
-  const planes = {
+  const planes: Record<PlanKey, any> = {
     hogar: {
       title: "Seguro de Hogar",
-      desc: "Protegé tu casa y tus pertenencias con la cobertura más completa del mercado.",
+      desc: "Protegé tu casa y tus pertenencias con una cobertura integral pensada para tu tranquilidad.",
       coverages: [
         "Incendio del edificio y contenido",
         "Robo y daños por intento de robo",
@@ -18,7 +25,7 @@ function MoreInfo() {
     },
     auto: {
       title: "Seguro Automotor",
-      desc: "Un seguro pensado para cada conductor.",
+      desc: "Un seguro pensado para cada conductor, con respaldo y asistencia en todo momento.",
       coverages: [
         "Responsabilidad civil obligatoria",
         "Robo y hurto",
@@ -34,17 +41,37 @@ function MoreInfo() {
         "Muerte accidental",
         "Incapacidad total o parcial",
         "Gastos médicos por accidente",
-        "Cobertura durante actividades laborales y extralaborales",
+        "Cobertura laboral y extralaboral",
       ],
     },
-    micro: {
-      title: "Microseguros",
-      desc: "Un plan simple, económico y accesible para quienes necesitan proteger lo esencial sin complicaciones.",
+    incendios: {
+      title: "Seguro contra Incendios",
+      desc: "Cobertura esencial para proteger tu propiedad ante incendios y daños asociados.",
       coverages: [
-        "Cobertura básica por fallecimiento",
-        "Asistencia médica",
-        "Protección ante accidentes menores",
-        "Planes pensados para trabajadores independientes",
+        "Incendio del edificio",
+        "Incendio del contenido",
+        "Daños por explosión",
+        "Caída de rayo",
+      ],
+    },
+    consorcio: {
+      title: "Integral de Consorcio",
+      desc: "Protección completa para edificios y consorcios, cuidando los bienes comunes.",
+      coverages: [
+        "Incendio del edificio",
+        "Responsabilidad civil del consorcio",
+        "Daños por agua",
+        "Cristales y espacios comunes",
+      ],
+    },
+    comercio: {
+      title: "Integral de Comercio",
+      desc: "Un seguro diseñado para proteger tu negocio y permitirte trabajar con tranquilidad.",
+      coverages: [
+        "Incendio del local y mercadería",
+        "Robo y daños",
+        "Responsabilidad civil comercial",
+        "Daños por agua y eventos climáticos",
       ],
     },
   };
@@ -54,7 +81,7 @@ function MoreInfo() {
   return (
     <section
       className="MoreInfo w-full flex flex-col items-center text-neutral-900 relative min-h-screen overflow-hidden bg-blanco-custom py-20"
-    id="MoreInfo"
+      id="MoreInfo"
     >
       <img
         src="/assests/images/slide1.webp"
@@ -63,49 +90,50 @@ function MoreInfo() {
       />
 
       <div className="relative z-10 text-center max-w-2xl p-6">
-        <h2 className="text-5xl font-bold text-white mb-10 mt-10 drop-shadow-xl">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 drop-shadow-xl">
           Tu agente de confianza en Federación Patronal
         </h2>
-        <p className="text-white text-lg mt-10 mb-10 opacity-90">
-          Trabajamos con la aseguradora número uno de LATAM, brindando la mejor
-          cobertura para vos y tu familia.
+        <p className="text-white text-lg opacity-90">
+          Brindamos asesoramiento personalizado y las mejores coberturas para
+          vos, tu familia y tu actividad.
         </p>
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto w-full px-4">
-
-        <div className="flex flex-wrap gap-3 justify-center mb-8 ">
-          {Object.keys(planes).map((key) => (
+      <div className="relative z-10 max-w-5xl mx-auto w-full px-4 mt-10">
+        {/* Botones */}
+        <div className="flex flex-wrap gap-3 justify-center mb-8">
+          {(Object.keys(planes) as PlanKey[]).map((key) => (
             <button
               key={key}
-              onClick={() => setActiveTab(key as 'hogar' | 'auto' | 'accidentes' | 'micro')}
-              className={`px-4 py-2 rounded-full text-sm font-semibold border transition-all mb-8
+              onClick={() => setActiveTab(key)}
+              className={`px-4 py-2 rounded-full text-sm font-semibold border transition-all
                 ${
                   activeTab === key
                     ? "bg-azul-oscuro-custom text-white border-blue-900 shadow-lg scale-105"
-                    : "bg-blanco-custom text-gray-800 hover:bg-gris-custom backdrop-blur-md border-amber-50"
-                }
-              `}
+                    : "bg-blanco-custom text-gray-800 hover:bg-gris-custom border-amber-50"
+                }`}
             >
-              {planes[key as keyof typeof planes].title}
+              {planes[key].title}
             </button>
           ))}
         </div>
 
-          <div
-            key={activeTab}
-            className="
-              bg-white/10 backdrop-blur-[2px] shadow-xl p-6 rounded-xl
-              h-[300px] overflow-hidden
-              md:h-auto md:overflow-visible
-              transition-all duration-300 ease-in-out
-            "
-          >
-          <h3 className="text-2xl font-bold text-blanco-custom mb-3">{planesData.title}</h3>
+        {/* Card */}
+        <div
+          className="
+            bg-white/10 backdrop-blur-[2px] shadow-xl p-6 rounded-xl
+            max-h-80 overflow-y-auto
+            md:max-h-none md:overflow-visible
+            transition-all duration-300
+          "
+        >
+          <h3 className="text-2xl font-bold text-blanco-custom mb-3">
+            {planesData.title}
+          </h3>
           <p className="text-blanco-custom mb-4">{planesData.desc}</p>
 
           <ul className="list-disc ml-5 text-blanco-custom space-y-1">
-            {planesData.coverages.map((item, i) => (
+            {planesData.coverages.map((item: string, i: number) => (
               <li key={i}>{item}</li>
             ))}
           </ul>
