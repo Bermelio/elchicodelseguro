@@ -48,10 +48,10 @@ function MoreInfo() {
       title: "Seguro contra Incendios",
       desc: "Cobertura esencial para proteger tu propiedad ante incendios y daños asociados.",
       coverages: [
-        "Incendio del edificio",
-        "Incendio del contenido",
-        "Daños por explosión",
-        "Caída de rayo",
+        "Incendio Edificio",
+        "Incendio Contenido, incendio mercaderías",
+        "Incendio instalaciones y Maquinarias",
+        "Responsabilidad Civil linderos",
       ],
     },
     consorcio: {
@@ -59,19 +59,21 @@ function MoreInfo() {
       desc: "Protección completa para edificios y consorcios, cuidando los bienes comunes.",
       coverages: [
         "Incendio del edificio",
-        "Responsabilidad civil del consorcio",
-        "Daños por agua",
-        "Cristales y espacios comunes",
+        "Incendio Contenido",
+        "Daños por agua e Inundación",
+        "Daños y Roturas de Cristales (incluidas las inscripciones que contengan)",
+        "Responsabilidad Civil Comprensiva"
       ],
     },
     comercio: {
       title: "Integral de Comercio",
       desc: "Un seguro diseñado para proteger tu negocio y permitirte trabajar con tranquilidad.",
       coverages: [
-        "Incendio del local y mercadería",
-        "Robo y daños",
-        "Responsabilidad civil comercial",
-        "Daños por agua y eventos climáticos",
+        "Incendio, explosión, derrumbe y fenómenos naturales.",
+        "Daños al local, instalaciones, carteles y cristales.",
+        "Gastos por limpieza, remoción de escombros y costos fijos.",
+        "Daños a equipos tecnológicos y eléctricos.",
+        "Pérdidas de mercadería (incendio, robo o falta de frío)."
       ],
     },
   };
@@ -100,7 +102,6 @@ function MoreInfo() {
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto w-full px-4 mt-10">
-        {/* Botones */}
         <div className="flex flex-wrap gap-3 justify-center mb-8">
           {(Object.keys(planes) as PlanKey[]).map((key) => (
             <button
@@ -118,11 +119,10 @@ function MoreInfo() {
           ))}
         </div>
 
-        {/* Card */}
         <div
           className="
             bg-white/10 backdrop-blur-[2px] shadow-xl p-6 rounded-xl
-            max-h-80 overflow-y-auto
+            max-h-120 overflow-y-auto
             md:max-h-none md:overflow-visible
             transition-all duration-300
           "

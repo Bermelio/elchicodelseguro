@@ -76,6 +76,8 @@
         scrollTrigger: {
           trigger: ".about-text",
           start: "top 80%",
+          toggleActions: "play reverse play reverse",
+          markers: false
         },
       });
 

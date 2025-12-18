@@ -82,7 +82,7 @@ function Main() {
             <button
               onClick={handleClick}
               className="
-                bg-gradient-to-r from-azul-oscuro-custom to-blue-600
+                bg-linear-to-r from-azul-oscuro-custom to-blue-800
                 text-white font-bold
                 py-4 px-8 md:px-10
                 rounded-full shadow-2xl
